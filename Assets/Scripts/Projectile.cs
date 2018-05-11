@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour {
 	}
 	
 	public void Hit(){
-		Destroy(gameObject);
+		if (Random.Range(0,10) <= 8) {
+			Destroy(gameObject);
+		}
 	}
 }
