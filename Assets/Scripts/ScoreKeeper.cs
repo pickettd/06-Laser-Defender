@@ -15,7 +15,12 @@ public class ScoreKeeper : MonoBehaviour {
 			
 	public void Score(int points){
 		Debug.Log ("Scored points");
-		score += points;
+		if (restarted) {
+			score += Random.Range(0,points*5);
+		}
+		else {
+			score += points;
+		}
 		myText.text = score.ToString();
 	}
 	
