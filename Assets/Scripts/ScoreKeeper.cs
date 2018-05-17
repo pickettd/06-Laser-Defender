@@ -5,6 +5,7 @@ using System.Collections;
 public class ScoreKeeper : MonoBehaviour {
 
 	public static int score = 0;
+	public static bool restarted = false;
 	private Text myText;
 
 	void Start(){

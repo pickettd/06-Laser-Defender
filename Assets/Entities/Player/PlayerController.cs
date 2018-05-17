@@ -29,12 +29,16 @@ public class PlayerController : MonoBehaviour {
 	void Die(){
 		LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 		man.LoadLevel("Win Screen");
+		ScoreKeeper.restarted = true;
 		Destroy(gameObject);
 	}
 	
 	void Start(){
 		Camera camera = Camera.main;
 		float distance = transform.position.z - camera.transform.position.z;
+		if (ScoreKeeper.restarted) {
+			padding = 0;
+		}
 		xmin = camera.ViewportToWorldPoint(new Vector3(0,0,distance)).x + padding;
 		xmax = camera.ViewportToWorldPoint(new Vector3(1,1,distance)).x - padding;
 	}
