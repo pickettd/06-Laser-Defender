@@ -56,8 +56,15 @@ public class PlayerController : MonoBehaviour {
 			CancelInvoke("Fire");
 		}
 		if(Input.GetKey(KeyCode.LeftArrow)){
+			float newX;
+			if (ScoreKeeper.restarted) {
+				newX = transform.position.x - speed * Time.deltaTime * 2;
+			}
+			else {
+				newX = transform.position.x - speed * Time.deltaTime;
+			}
 			transform.position = new Vector3(
-				Mathf.Clamp(transform.position.x - speed * Time.deltaTime, xmin, xmax),
+				Mathf.Clamp(newX, xmin, xmax),
 				transform.position.y, 
 				transform.position.z 
 			);
