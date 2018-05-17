@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void QuitRequest(){
+		// Note that this doesn't work in a webgl build
 		Debug.Log ("Quit requested");
 		Application.Quit ();
 	}
